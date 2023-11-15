@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | FAQ Accordion Card</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+<div class="whiteCard">
+  <img src="./images/illustration-box-desktop.svg" alt="A box with an '@' symbols on the lid">
+
+  <div class="images">
+    <img src="./images/illustration-woman-online-desktop.svg" alt="A woman using a giant TV screen">
+  </div>
+  <div class="rightCol">
+    <h1>FAQ</h1>
+  <div class="questions">
+
+<div class="block">
+    <p  class="question">How many team members can I invite?</p>
+    <img class="arrow" src="./images/icon-arrow-down.svg">
+    
+    <p class="answer">You can invite up to 2 additional users on the Free plan. There is no limit on 
+    team members for the Premium plan.</p>
+</div>
+
+<div class="block">
+  <p class="question">What is the maximum file upload size?</p>
+  <img class="arrow" src="./images/icon-arrow-down.svg">
+
+  <p class="answer">No more than 2GB. All files in your account must fit your allotted storage space.</p>
+</div>
+
+<div class="block">
+  <p class="question">How do I reset my password?</p>
+  <img class="arrow" src="./images/icon-arrow-down.svg">
+
+  <p class="answer">Click “Forgot password” from the login page or “Change password” from your profile page.
+  A reset link will be emailed to you.</p>
+</div>
+
+<div class="block">
+  <p class="question">Can I cancel my subscription?</p>
+  <img class="arrow" src="./images/icon-arrow-down.svg">
+
+  <p class="answer">Yes! Send us a message and we’ll process your request no questions asked.</p>
+</div>
+
+<div class="block">
+  <p class="question">Do you provide additional support?</p>
+  <img class="arrow" src="./images/icon-arrow-down.svg">
+  <p class="answer">Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
+</div>
+</div>
+
+</div>
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Rodrigo Leuci</a>.
+  </div> -->
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+
+  let blocks=document.querySelectorAll(".block");
+  let questions=document.querySelectorAll(".question");
+  let answers=document.querySelectorAll(".answer");
+  let arrows=document.querySelectorAll(".arrow");
+  let prevOpen="";
+
+  blocks.forEach((bl,i)=>bl.addEventListener("click", ()=>{
+     if(i==prevOpen){
+      answers[i].classList.toggle("open");
+      questions[i].classList.toggle("questionOpen");
+      arrows[i].classList.toggle("up");
+      prevOpen=i;
+    }
+    else if(i!=prevOpen){
+    answers[prevOpen].classList.remove("open");
+    questions[prevOpen].classList.remove("questionOpen");
+    answers[i].classList.add("open");
+    questions[i].classList.add("questionOpen");
+    arrows[i].classList.toggle("up");
+    prevOpen=i;
+  }
+  }))
+
+})
+  // blocks.forEach((bl,i)=>bl.addEventListener("click", ()=>{
+  //   document.querySelector("h1").textContent=prevOpen}))
+</script>
+</body>
+</html>
